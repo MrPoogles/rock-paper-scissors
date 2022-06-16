@@ -6,12 +6,12 @@
 
 // Computer will pick randomly 1 of 3 numbers.
 function computerPlay() {
-  let number = Math.floor(Math.random() * 3);
+  let choice = Math.floor(Math.random() * 3);
 
   // condition to associate number with rock paper scissors choice.
-  if (number == 0) {
+  if (choice == 0) {
     return "rock";  
-  } else if (number == 1) {
+  } else if (choice == 1) {
     return "paper";
   } else {
     return "scissors";
@@ -23,13 +23,31 @@ function computerPlay() {
 function playRound(playerSelection, computerSelection) {
   if (playerSelection == computerSelection) {
     return "It's a tie!";
-  } else if (computerSelection == "paper") {
-    return "You Lose!";
-  } else {
-    return "You Win!"
+   
+  // rock
+  } else if (playerSelection == "rock") {
+      if (computerSelection == "paper") {
+        return "You Lose! Paper beats rock.";
+      } else {
+        return "You Win! Rock slams scissors!";
+      }
+  // paper
+  } else if (playerSelection == "paper") {
+      if (computerSelection == "scissors") {
+        return "You Lose! Scissors cut paper.";
+      } else {
+        return "You Win! Paper beats rock.";
+      }
+  // scissors
+  } else if (playerSelection == "scissors") {
+      if (computerSelection == "rock") {
+        return "You Lose! Rock slams scissors.";
+      } else {
+        return "You Win! Scissors cut paper.";
+      }
   }
 }
 
-const playerSelection = "rock";
+const playerSelection = "paper";
 const computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection));
