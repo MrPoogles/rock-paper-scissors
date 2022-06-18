@@ -15,30 +15,38 @@ function computerPlay() {
 //function that plays a single round of Janken!
 function playRound(playerSelection, computerSelection) {
   if (playerSelection == computerSelection) {
-    console.log("It's a tie! You both choose the same option.");
+    return "It's a tie! You both chose the same option.";
    
   // rock
   } else if (playerSelection == "rock") {
       if (computerSelection == "paper") {
-        console.log("You Lose! Rock cannot beat paper.");
+        computerScore++;
+        return "You Lose! Rock cannot beat paper.";
       } else {
-        console.log("You Win! Rock slams scissors!");
+        playerScore++;
+         return "You Win! Rock slams scissors!";
       }
   // paper
   } else if (playerSelection == "paper") {
       if (computerSelection == "scissors") {
-        console.log("You Lose! Paper was cut by scissors.");
+        computerScore++;
+        return "You Lose! Paper was cut by scissors.";
       } else {
-        console.log("You Win! Paper beats rock.");
+        playerScore++;
+        return "You Win! Paper beats rock.";
       }
   // scissors
   } else if (playerSelection == "scissors") {
       if (computerSelection == "rock") {
-        console.log("You Lose! Scissors was slammed by rock.");
+        computerScore++;
+        return "You Lose! Scissors was slammed by rock.";
       } else {
-        console.log("You Win! Scissors cut paper.");
+        playerScore++;
+        return "You Win! Scissors cut paper.";
       }
-  } 
+  } else {
+    return "Please choose between 'rock, 'paper' or scissors'!";
+  }
 }
 
 // function to input player choice via promptbox
@@ -51,17 +59,31 @@ function playerPlay() {
   } else if (playerChoice.toLowerCase() == "scissors") {
     return "scissors";
   } else {
-    console.log("Please choose between 'rock, 'paper' or scissors'!");
+    return "no choice";
   }
 }
 
+// score
+let playerScore = 0;
+let computerScore = 0;
 
-let playerSelection = playerPlay();
-let computerSelection = computerPlay();
-
-// function to play 5 round game
+// function to play 5 rounds game
 function game() {
-  playRound(playerSelection, computerSelection);
+  for (let i = 0; i < 5; i++) {
+    let playerSelection = playerPlay();
+    let computerSelection = computerPlay();
+    console.log(playRound(playerSelection,computerSelection));
+    console.log("Your score : " + playerScore)
+    console.log("Computer score : " + computerScore)
+  }
+
+  if (playerScore > computerScore) {
+    console.log("You Win!");
+  } else if (playerScore < computerScore) {
+    console.log("You lose!");
+  } else {
+    console.log("There is no winner.");
+  }
 }
 
 game();
