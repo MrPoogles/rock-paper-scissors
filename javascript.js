@@ -1,80 +1,82 @@
-function computerPlay() {
-  let choice = Math.floor(Math.random() * 3);
+const cenView = document.querySelector(".centerView");
+const disBottom = document.querySelector(".displayBottom");
+const winnerText = document.createElement('p');
+const replayButton = document.createElement('button');
+replayButton.classList.add('replayButton');
 
-  if (choice == 0) {
-    return "rock";  
-  } else if (choice == 1) {
-    return "paper";
-  } else {
-    return "scissors";
-  }
-}
-
-function playerPlay() {
-  let playerChoice = prompt("Please select between 'rock', 'paper', or 'scissors'");
-  if (playerChoice.toLowerCase() == "rock") {
-    return "rock";
-  } else if (playerChoice.toLowerCase() == "paper") {
-    return "paper";
-  } else if (playerChoice.toLowerCase() == "scissors") {
-    return "scissors";
-  } else {
-    return "no choice";
-  }
-}
+const buttons = document.querySelectorAll(".button");
 
 let playerScore = 0;
 let computerScore = 0;
 
+function computerPlay() {
+  let choice = Math.floor(Math.random() * 3);
+  if (choice === 0) {
+    return "rock";  
+  } else if (choice === 1) {
+    return "paper";
+  } else {
+    return "scissors";
+  }
+}
+
+const playerPlay = function(e) {
+  let playerSelection = e.target.value;
+  playRound(playerSelection, computerPlay());
+}
+
 function playRound(playerSelection, computerSelection) {
   if (playerSelection == computerSelection) {
-    return "It's a tie! You both chose the same option.";
-   
+    disBottom.textContent = "It's a tie! You both chose the same option.";   
   } else if (playerSelection == "rock") {
       if (computerSelection == "paper") {
         computerScore++;
-        return "You Lose! Rock cannot beat paper.";
+        disBottom.textContent = "You Lose! Rock cannot beat paper.";
       } else {
         playerScore++;
-         return "You Win! Rock slams scissors!";
+        disBottom.textContent = "You Win! Rock slams scissors!";
       }
   } else if (playerSelection == "paper") {
       if (computerSelection == "scissors") {
         computerScore++;
-        return "You Lose! Paper was cut by scissors.";
+        disBottom.textContent = "You Lose! Paper was cut by scissors.";
       } else {
         playerScore++;
-        return "You Win! Paper beats rock.";
+        disBottom.textContent = "You Win! Paper beats rock.";
       }
   } else if (playerSelection == "scissors") {
       if (computerSelection == "rock") {
         computerScore++;
-        return "You Lose! Scissors was slammed by rock.";
+        disBottom.textContent = "You Lose! Scissors was slammed by rock.";
       } else {
         playerScore++;
-        return "You Win! Scissors cut paper.";
+        disBottom.textContent = "You Win! Scissors cut paper.";
       }
-  } else {
-    return "Please choose between 'rock, 'paper' or scissors'!";
-  }
+  };
+  cenView.textContent = `${playerScore} : ${computerScore}`;
+  game();
 }
 
 function game() {
-  for (let i = 0; i < 5; i++) {
-    let playerSelection = playerPlay();
-    let computerSelection = computerPlay();
-    console.log(playRound(playerSelection,computerSelection));
-    console.log("Your score : " + playerScore)
-    console.log("Computer score : " + computerScore)
-  }
+  if (playerScore === 5) {
+    winnerText.textContent = `Player Victory! Play again?`
+    cenView.appendChild(winnerText);
+    cenView.appendChild(replayButton);
+    replayButton.textContent = "Again";
+    buttons.forEach(button => button.removeEventListener("click", playerPlay));
 
-  if (playerScore > computerScore) {
-    console.log("You Win!");
-  } else if (playerScore < computerScore) {
-    console.log("You lose!");
-  } else {
-    console.log("There is no winner.");
+  } else if (computerScore === 5) {
+    winnerText.textContent = `Player Loss! Play again?`
+    cenView.appendChild(winnerText);
+    cenView.appendChild(replayButton);
+    replayButton.textContent = "Again"; 
+    buttons.forEach(button => button.removeEventListener("click", playerPlay));
   }
 }
 
-game();
+function replay() {
+  location.reload();
+}
+
+buttons.forEach(button => button.addEventListener("click", playerPlay))
+replayButton.addEventListener('click', replay)
