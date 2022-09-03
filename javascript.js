@@ -49,6 +49,19 @@ function playRound(playerSelection, computerSelection) {
   removeAllChildNodes(computerSelectionBox);
   if (playerSelection == computerSelection) {
     disBottom.textContent = "It's a tie! You both chose the same option.";
+    if (playerSelection == "rock") {
+      playerSelectionBox.appendChild(rockImage);
+      let cloneRock = rockImage.cloneNode();
+      computerSelectionBox.appendChild(cloneRock);
+    } else if (playerSelection == "paper") {
+      playerSelectionBox.appendChild(paperImage);
+      let clonePaper = paperImage.cloneNode();
+      computerSelectionBox.appendChild(clonePaper);
+    } else if (playerSelection == "scissors") {
+      playerSelectionBox.appendChild(scissorsImage);
+      let cloneScissors = scissorsImage.cloneNode();
+      computerSelectionBox.appendChild(cloneScissors);
+    }
   } else if (playerSelection == "rock") {
     playerSelectionBox.appendChild(rockImage);
       if (computerSelection == "paper") {
