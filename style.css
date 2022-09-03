@@ -105,3 +105,15 @@ h3 {
   font-size: 36px;
   margin: 10px 0px 0px 0px;
 }
+
+.playerSelectionBox, 
+.computerSelectionBox {
+  width: 100px;
+  height: 200px;
+  border: 1px solid black;
+}
+
+.selectionImage {
+  width: 100px;
+  height: 100px;
+}

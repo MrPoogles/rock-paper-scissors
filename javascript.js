@@ -1,8 +1,21 @@
 const cenView = document.querySelector(".centerView");
 const disBottom = document.querySelector(".displayBottom");
+const playerSelectionBox = document.querySelector(".playerSelectionBox");
+const computerSelectionBox = document.querySelector(".computerSelectionBox");
 const winnerText = document.createElement('p');
 const replayButton = document.createElement('button');
 replayButton.classList.add('replayButton');
+
+const rockImage = document.createElement("img");
+rockImage.src = 'images/rock.png';
+const paperImage = document.createElement("img");
+paperImage.src = 'images/paper.png';
+const scissorsImage = document.createElement("img");
+scissorsImage.src ='images/scissors.png';
+rockImage.classList.add('selectionImage');
+paperImage.classList.add('selectionImage');
+scissorsImage.classList.add('selectionImage');
+
 
 const buttons = document.querySelectorAll(".button");
 
@@ -25,10 +38,18 @@ const playerPlay = function(e) {
   playRound(playerSelection, computerPlay());
 }
 
+function removeAllChildNodes(parent){
+  while(parent.firstChild){
+    parent.removeChild(parent.firstChild);
+  }
+}
+
 function playRound(playerSelection, computerSelection) {
+  removeAllChildNodes(playerSelectionBox);
   if (playerSelection == computerSelection) {
-    disBottom.textContent = "It's a tie! You both chose the same option.";   
+    disBottom.textContent = "It's a tie! You both chose the same option.";
   } else if (playerSelection == "rock") {
+    playerSelectionBox.appendChild(rockImage);
       if (computerSelection == "paper") {
         computerScore++;
         disBottom.textContent = "You Lose! Rock cannot beat paper.";
@@ -37,6 +58,7 @@ function playRound(playerSelection, computerSelection) {
         disBottom.textContent = "You Win! Rock slams scissors!";
       }
   } else if (playerSelection == "paper") {
+    playerSelectionBox.appendChild(paperImage);
       if (computerSelection == "scissors") {
         computerScore++;
         disBottom.textContent = "You Lose! Paper was cut by scissors.";
@@ -45,6 +67,7 @@ function playRound(playerSelection, computerSelection) {
         disBottom.textContent = "You Win! Paper beats rock.";
       }
   } else if (playerSelection == "scissors") {
+    playerSelectionBox.appendChild(scissorsImage);
       if (computerSelection == "rock") {
         computerScore++;
         disBottom.textContent = "You Lose! Scissors was slammed by rock.";
