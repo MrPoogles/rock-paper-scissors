@@ -46,32 +46,39 @@ function removeAllChildNodes(parent){
 
 function playRound(playerSelection, computerSelection) {
   removeAllChildNodes(playerSelectionBox);
+  removeAllChildNodes(computerSelectionBox);
   if (playerSelection == computerSelection) {
     disBottom.textContent = "It's a tie! You both chose the same option.";
   } else if (playerSelection == "rock") {
     playerSelectionBox.appendChild(rockImage);
       if (computerSelection == "paper") {
+        computerSelectionBox.appendChild(paperImage);
         computerScore++;
         disBottom.textContent = "You Lose! Rock cannot beat paper.";
       } else {
+        computerSelectionBox.appendChild(scissorsImage);
         playerScore++;
         disBottom.textContent = "You Win! Rock slams scissors!";
       }
   } else if (playerSelection == "paper") {
     playerSelectionBox.appendChild(paperImage);
       if (computerSelection == "scissors") {
+        computerSelectionBox.appendChild(scissorsImage);
         computerScore++;
         disBottom.textContent = "You Lose! Paper was cut by scissors.";
       } else {
+        computerSelectionBox.appendChild(rockImage);
         playerScore++;
         disBottom.textContent = "You Win! Paper beats rock.";
       }
   } else if (playerSelection == "scissors") {
     playerSelectionBox.appendChild(scissorsImage);
       if (computerSelection == "rock") {
+        computerSelectionBox.appendChild(rockImage);
         computerScore++;
         disBottom.textContent = "You Lose! Scissors was slammed by rock.";
       } else {
+        computerSelectionBox.appendChild(scissorsImage);
         playerScore++;
         disBottom.textContent = "You Win! Scissors cut paper.";
       }
