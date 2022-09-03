@@ -91,7 +91,7 @@ function playRound(playerSelection, computerSelection) {
         computerScore++;
         disBottom.textContent = "You Lose! Scissors was slammed by rock.";
       } else {
-        computerSelectionBox.appendChild(scissorsImage);
+        computerSelectionBox.appendChild(paperImage);
         playerScore++;
         disBottom.textContent = "You Win! Scissors cut paper.";
       }
