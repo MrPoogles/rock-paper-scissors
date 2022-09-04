@@ -1,8 +1,13 @@
+body {
+  background-color: #614710;
+}
+
 .displayMain {
   box-sizing: border-box;
   height: 350px;
   width: 1100px;
-  border: 5px solid black;
+  border: 5px solid goldenrod;
+  background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -10,29 +15,38 @@
 
 .displayBottom {
   height: 100px;
-  width: 500px;
-  border: 5px solid black;
+  width: 600px;
+  border: 5px solid goldenrod;
+  background-color: #fff;
+  color: #614710;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 button {
-  height: 100px;
-  width: 100px;
+  height: 140px;
+  width: 140px;
   border-radius: 50%;
-  border: 2px solid black;
-  font-size: 20px;
+  border: 5px solid #94690D;
+  font-size: 30px;
+  color: #94690D;
+  background-color: #EDAF28;
+}
+
+.replayButton {
+  color: #fff;
+  border: 5px solid #94690D;
+  background-color: goldenrod;
 }
 
 button:hover {
-  background-color: goldenrod;
-  color: #fff;
+  background-color: #ffbb00;
 }
 
 button:active {
-  background-color: #ffbb00;
+  background-color: #FFC445;
 }
 
 .main {
@@ -53,6 +67,7 @@ button:active {
 }
 
 p {
+  color: #94690D;
   font-size: 30px;
   margin: 0px;
 }
@@ -65,7 +80,8 @@ p {
   align-items: center;
   justify-content: center;
   gap: 25px;
-  font-size: 36px;
+  font-size: 50px;
+  color: #94690D;
 }
 
 .playerProfile, 
@@ -92,7 +108,7 @@ h1 {
 }
 
 h2 {
-  color: goldenrod;
+  color: #FFC445;
   font-size: 36px;
   margin: 0px;
   text-align: center;
@@ -100,6 +116,7 @@ h2 {
 }
 
 h3 {
+  color: #94690D;
   font-size: 36px;
   margin: 10px 0px 0px 0px;
 }
