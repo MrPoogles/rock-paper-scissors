@@ -47,9 +47,9 @@ function removeAllChildNodes(parent){
 function playRound(playerSelection, computerSelection) {
   removeAllChildNodes(playerSelectionBox);
   removeAllChildNodes(computerSelectionBox);
-  rockImage.style.border = "none";
-  paperImage.style.border = "none";
-  scissorsImage.style.border = "none";
+  rockImage.style.border = "2px solid #336699";
+  paperImage.style.border = "2px solid #336699";
+  scissorsImage.style.border = "2px solid #336699";
   if (playerSelection == computerSelection) {
     disBottom.textContent = "It's a tie! You both chose the same option.";
     if (playerSelection == "rock") {
@@ -67,13 +67,13 @@ function playRound(playerSelection, computerSelection) {
     }
   } else if (playerSelection == "rock") {
       if (computerSelection == "paper") {
-        paperImage.style.border = "5px solid gold"
+        paperImage.style.border = "10px solid #336699"
         playerSelectionBox.appendChild(rockImage);
         computerSelectionBox.appendChild(paperImage);
         computerScore++;
         disBottom.textContent = "You Lose! Rock cannot beat paper.";
       } else {
-        rockImage.style.border = "5px solid gold"
+        rockImage.style.border = "10px solid #336699"
         playerSelectionBox.appendChild(rockImage);
         computerSelectionBox.appendChild(scissorsImage);
         playerScore++;
@@ -81,13 +81,13 @@ function playRound(playerSelection, computerSelection) {
       }
   } else if (playerSelection == "paper") {
       if (computerSelection == "scissors") {
-        scissorsImage.style.border = "5px solid gold"
+        scissorsImage.style.border = "10px solid #336699"
         playerSelectionBox.appendChild(paperImage);
         computerSelectionBox.appendChild(scissorsImage);
         computerScore++;
         disBottom.textContent = "You Lose! Paper was cut by scissors.";
       } else {
-        paperImage.style.border = "5px solid gold"
+        paperImage.style.border = "10px solid #336699"
         playerSelectionBox.appendChild(paperImage);
         computerSelectionBox.appendChild(rockImage);
         playerScore++;
@@ -95,13 +95,13 @@ function playRound(playerSelection, computerSelection) {
       }
   } else if (playerSelection == "scissors") {
       if (computerSelection == "rock") {
-        rockImage.style.border = "5px solid gold";
+        rockImage.style.border = "10px solid #336699";
         playerSelectionBox.appendChild(scissorsImage);
         computerSelectionBox.appendChild(rockImage);
         computerScore++;
         disBottom.textContent = "You Lose! Scissors was slammed by rock.";
       } else {
-        scissorsImage.style.border = "5px solid gold"
+        scissorsImage.style.border = "10px solid #336699"
         playerSelectionBox.appendChild(scissorsImage);
         computerSelectionBox.appendChild(paperImage);
         playerScore++;
