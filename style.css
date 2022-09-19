@@ -8,6 +8,28 @@ body {
   justify-content: space-between;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background-color: #FFCC66;
+  height: 101px;
+  padding: 16px 30px;
+}
+
+.logo,
+.dummyLogo {
+  max-height: 65px;
+  border-radius: 250px;
+  border: 2px solid #336699;
+}
+
+.logo:hover {
+  transform: rotate(180deg);
+  transition: all 2.0s;
+  cursor: help;
+}
+
 .displayMain {
   box-sizing: border-box;
   height: 350px;
@@ -114,11 +136,10 @@ img {
 }
 
 h1 {
-  color:  #FFCC66;
+  color:  #336699;;
   font-size: 60px;
   margin: 0px;
   text-align: center;
-  padding: 20px 0px;
 }
 
 h2 {
