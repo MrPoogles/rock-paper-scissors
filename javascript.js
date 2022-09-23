@@ -2,6 +2,8 @@ const cenView = document.querySelector(".centerView");
 const disBottom = document.querySelector(".displayBottom");
 const playerSelectionBox = document.querySelector(".playerSelectionBox");
 const computerSelectionBox = document.querySelector(".computerSelectionBox");
+const modal = document.querySelector(".modal");
+const modalContent = document.querySelector(".modalContent");
 const winnerText = document.createElement('p');
 const replayButton = document.createElement('button');
 replayButton.classList.add('replayButton');
@@ -51,7 +53,7 @@ function playRound(playerSelection, computerSelection) {
   paperImage.style.border = "2px solid #336699";
   scissorsImage.style.border = "2px solid #336699";
   if (playerSelection == computerSelection) {
-    disBottom.textContent = "It's a tie! You both chose the same option.";
+    disBottom.textContent = "It's a tie!";
     if (playerSelection == "rock") {
       playerSelectionBox.appendChild(rockImage);
       let cloneRock = rockImage.cloneNode();
@@ -114,16 +116,18 @@ function playRound(playerSelection, computerSelection) {
 
 function game() {
   if (playerScore === 5) {
+    modal.classList.add("active");
     winnerText.textContent = `Victory!`
-    cenView.appendChild(winnerText);
-    cenView.appendChild(replayButton);
+    modalContent.appendChild(winnerText);
+    modalContent.appendChild(replayButton);
     replayButton.textContent = "Again";
     buttons.forEach(button => button.removeEventListener("click", playerPlay));
 
   } else if (computerScore === 5) {
+    modal.classList.add("active");
     winnerText.textContent = `Defeat...`
-    cenView.appendChild(winnerText);
-    cenView.appendChild(replayButton);
+    modalContent.appendChild(winnerText);
+    modalContent.appendChild(replayButton);
     replayButton.textContent = "Again"; 
     buttons.forEach(button => button.removeEventListener("click", playerPlay));
   }
