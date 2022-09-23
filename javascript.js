@@ -114,14 +114,14 @@ function playRound(playerSelection, computerSelection) {
 
 function game() {
   if (playerScore === 5) {
-    winnerText.textContent = `Player Victory! Play again?`
+    winnerText.textContent = `Victory!`
     cenView.appendChild(winnerText);
     cenView.appendChild(replayButton);
     replayButton.textContent = "Again";
     buttons.forEach(button => button.removeEventListener("click", playerPlay));
 
   } else if (computerScore === 5) {
-    winnerText.textContent = `Player Loss! Play again?`
+    winnerText.textContent = `Defeat...`
     cenView.appendChild(winnerText);
     cenView.appendChild(replayButton);
     replayButton.textContent = "Again"; 

@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MrPoogles' RPS Game</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="./images/logo-image.jpg">
@@ -12,30 +13,30 @@
       <a href="https://mrpoogles.github.io/landing-page/">
         <img class= "logo" src="./images/logo-image.jpg" alt="logo">
       </a>
-      <h1>Rock Paper Scissors</h1>
+      <h1 class="tittle">Rock Paper Scissors</h1>
       <img class= "dummyLogo" src="./images/logo-image.jpg" alt="dummy logo">
     </div>
-    <h2>Select between rock, paper, and scissors and earn victory by scoring 5 points.</h2>
-    <div class = main>
-      <div class = displayMain>
-        <div class = playerProfile>
-          <img src = "./images/human.png" alt = "human">
-          <h3>Player</h3>
+    <div class = "mainContainer">
+      <h2 class="mainTittle">Select between rock, paper, and scissors and earn victory by scoring 5 points.</h2>
+      <div class = "displayMain">
+        <div class = "profileContainer">
+          <img class="profileImg" src = "./images/human.png" alt = "human">
+          <h3 class="profileName">Player</h3>
+          <div class="playerSelectionBox"></div>
         </div>
-        <div class="playerSelectionBox"></div>
-        <div class = centerView></div>
-        <div class="computerSelectionBox"></div>
-        <div class = computerProfile>
-          <img src = "./images/computer.png" alt = "computer">
-          <h3>Computer</h3>
+        <div class = "profileContainer">
+          <img class="profileImg" src = "./images/computer.png" alt = "computer">
+          <h3 class="profileName">Computer</h3>
+          <div class="computerSelectionBox"></div>
         </div>
-      </div>
-      <div class = buttons>
-        <button class = button value="rock">Rock</button>
-        <button class = button value="paper">Paper</button>
-        <button class = button value="scissors">Scissors</button>
       </div>
       <div class = displayBottom></div>
+      <div class = "centerView"></div>
+      <div class = "buttonsContainer">
+        <button class = "button" value="rock">Rock</button>
+        <button class = "button" value="paper">Paper</button>
+        <button class = "button" value="scissors">Scissors</button>
+      </div>
     </div>
     <div class="footer">Webpage by: MrPoogles</div>
   </body>
